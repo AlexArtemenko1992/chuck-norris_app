@@ -87,9 +87,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const favoriteItem = document.querySelectorAll(".favorite-item");
   favoriteItem.forEach((item) => {
     item.addEventListener("click", (e) => {
-      console.log(e.target);
       if (e.target.classList.contains("fa-heart")) {
-        console.log(item.id);
         localStorage.removeItem(item.id);
         item.remove();
       }
@@ -206,6 +204,9 @@ function createSearchInput() {
 
 function buildJoke(jokes) {
   const { categories, id, updated_at, url, value } = jokes;
+  const currentDate = new Date();
+  const lastDate = new Date(2020, 01, 05, 13, 42, 19);
+  const result = Math.floor((currentDate - lastDate) / 1000 / 60 / 60);
   return `
 		<div class='joke-item'>
       <i class="far fa-heart"></i>
@@ -217,7 +218,7 @@ function buildJoke(jokes) {
 				<span class='joke-item_id'>ID: <a href='${url}' class='joke-item_link'>${id}  <i class="fas fa-external-link-alt"></i></a></span>
 				<p class='joke-item_text'>${value}</p>
 				<div class='joke-item-date'>
-					<span class='joke-item-lastUpd'>Last update: <span>${updated_at}</span></span>
+					<span class='joke-item-lastUpd'>Last update: <span>${result} hours ago</span></span>
 					<span class='joke-item-category'>${categories[0] || "Categories not found"}</span>
 				</div>
 			</div>
@@ -228,12 +229,8 @@ function buildJoke(jokes) {
 function generateFavoriteItem(data) {
   const { id, updated_at, url, value } = data;
   const currentDate = new Date();
-  const lastDate = new Date(updated_at);
-  const result = Math.floor(
-    (currentDate.toLocaleTimeString() - lastDate.toLocaleTimeString()) / 1000 / 60 / 60,
-  );
-  console.log(result);
-
+  const lastDate = new Date(2020, 01, 05, 13, 42, 19);
+  const result = Math.floor((currentDate - lastDate) / 1000 / 60 / 60);
   return `
 		<div class='favorite-item' id='${id}'>
       <i class="fas fa-heart"></i>
@@ -245,7 +242,7 @@ function generateFavoriteItem(data) {
 				<span class='favorite-item_id'>ID: <a href='${url}' class='joke-item_link'>${id}  <i class="fas fa-external-link-alt"></i></a></span>
 				<p class='favorite-item_text'>${value}</p>
 				<div class='favorite-item-date'>
-					<span class='favorite-item-lastUpd'>Last update: <span>${updated_at}</span></span>
+					<span class='favorite-item-lastUpd'>Last update: <span>${result} hours ago</span></span>
 				</div>
 			</div>
 		</div>
@@ -253,7 +250,6 @@ function generateFavoriteItem(data) {
 }
 
 function heartsHendler(item, res) {
-  console.log(item, res);
   const jokeItem = document.querySelector(".joke-item");
   jokeItem.setAttribute("id", res.id);
 
