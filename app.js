@@ -162,8 +162,6 @@ searchPanel.addEventListener("submit", (e) => {
       });
     }
     toolBar.remove();
-  } else {
-    createBtnGroup.remove();
   }
 
   if (searchPanel.elements.search.checked) {
