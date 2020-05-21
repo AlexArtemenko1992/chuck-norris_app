@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="./style.css" />
+	<script src="https://kit.fontawesome.com/5615e0f847.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="content-wrapper">
+		<main class="main-content">
+			<header class="header">
+				<span class="header-title">MSI 2020</span>
+				<div class="burger-menu">
+					<div class="burger-btn_wrapper">
+						<a href="#" class="burger-menu__button">
+							<span class="burger-menu__liness"></span>
+						</a>
+						<span class="burger-menu_title">Favorite</span>
+					</div>
+					<div class="burger-menu__overlay"></div>
+				</div>
+			</header>
+			<h1 class="main-title">Hey!</h1>
+			<h2 class="main-subtitle">Let's try to find a joke for you:</h2>
+
+			<form class="search-panel">
+				<article class="random-input-wrapper">
+					<input type="radio" name="test" value="random" class="input-item-random radio" id="random" checked />
+					<label for="random">Random</label>
+				</article>
+
+				<article class="categories-input-wrapper">
+					<input type="radio" name="test" value="categories" class="input-item-categories radio" id="categories" />
+					<label for="categories">From Categories</label>
+				</article>
+
+				<article class="search-input-wrapper">
+					<input type="radio" name="test" value="search" class="input-item-searh radio" id="search" />
+					<label for="search">Search</label>
+				</article>
+
+				<button class="selection-btn">Get a joke</button>
+			</form>
+
+			<section class="jokes-list"></section>
+		</main>
+		<aside class="aside-content">
+			<span class="aside-title">Favorite</span>
+		</aside>
+	</div>
+
+	<script src="./app.js"></script>
+</body>
+
+</html>
